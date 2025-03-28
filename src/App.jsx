@@ -25,6 +25,14 @@ function App() {
 
   useEffect(fetchPosts, [])
 
+  const handleDelete = (slug) => {
+    fetch(`http://localhost:3003/api/v1/posts/${slug}`, { method: 'DELETE' })
+      .then(() => {
+        setPosts((prevPosts) => prevPosts.filter(post => post.slug !== slug));
+      })
+      .catch((error) => console.error('Error deleting post:', error));
+  };
+
   return (
     <>
       <header>
@@ -58,6 +66,17 @@ function App() {
                   <div className="card-body">
                     <h3>{post.title}</h3>
                     <p>{post.content}</p>
+                    <div className="container">
+                      <div className="tags">
+                        {post.tags.map((tag, index) => (
+                          <button key={`tag-${index}`} className='btn btn-primary m-1'>{tag}</button>
+                        ))}
+                      </div>
+                      <button
+                        className="btn btn-danger mt-5" onClick={() => handleDelete(post.slug)}>
+                        Elimina Post
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
