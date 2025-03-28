@@ -1,6 +1,6 @@
 /* 
 
-- [] Creiamo una nuova applicazione con react e prepariamoci a fare il fetch dei posts.
+- [X] Creiamo una nuova applicazione con react e prepariamoci a fare il fetch dei posts.
 - [] Al caricamento dell'applicazione, sfruttando l'hook useEffect, recuperiamo la lista dei post dal backend e la mostriamo in una tabella.
 - [X]Attenzione! ricordati di impostare la CORS policy (leggi le slide)!
 
